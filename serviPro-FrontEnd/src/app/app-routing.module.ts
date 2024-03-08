@@ -21,6 +21,10 @@ const routes: Routes = [
   {
     path:"pos",
     component:PosComponent
+  },
+  {
+    path:"pickUp",
+    component:PickUpComponent
   }
 ];
 
