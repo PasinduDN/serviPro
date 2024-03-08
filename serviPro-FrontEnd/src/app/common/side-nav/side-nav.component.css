@@ -1,0 +1,35 @@
+
+.rounded-border {
+    border-radius: 15px; 
+    padding: 20px; 
+}
+
+.custom-column1-color {
+    background-color: #212229 !important;
+}
+
+.custom-column1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.custom-column1 .btn {
+    width: 100%;
+    margin-bottom: 10px; 
+}
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 400px;
+    overflow: auto; 
+    }
+    .table-wrapper-scroll-y {
+    display: block;
+    }
+
+    table tr td, table tr th{
+        background-color: rgba(210,130,240, 0.0) !important;
+        color: aliceblue;
+        border:1px solid #212229;
+    }
