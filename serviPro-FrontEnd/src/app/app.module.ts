@@ -14,6 +14,7 @@ import { PickUpSettleComponent } from './pages/pick-up-settle/pick-up-settle.com
 import { PosComponent } from './pages/pos/pos.component';
 import { TableOrderSettleComponent } from './pages/table-order-settle/table-order-settle.component';
 import { TablePlaceOrderComponent } from './pages/table-place-order/table-place-order.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { TablePlaceOrderComponent } from './pages/table-place-order/table-place-
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

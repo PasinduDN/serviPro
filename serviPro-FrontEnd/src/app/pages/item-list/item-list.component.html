@@ -37,22 +37,22 @@
         <div class="modal-body p-5 pt-0">
             <form class="">
               <div class="form-floating mb-3">
-                <input type="text" class="form-control rounded-3" id="itemCode" placeholder="">
+                <input type="text" class="form-control rounded-3" name="itemCode" [(ngModel)]="item.itemCode" id="itemCode" placeholder="">
                 <label for="itemCode">Item Code</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="text" class="form-control rounded-3" id="itemName" placeholder="">
+                <input type="text" class="form-control rounded-3" name="itemName" [(ngModel)]="item.itemName" id="itemName" placeholder="">
                 <label for="itemName">Name</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="text" class="form-control rounded-3" id="itemcategory" placeholder="">
+                <input type="text" class="form-control rounded-3" name="itemcategory" [(ngModel)]="item.category" id="itemcategory" placeholder="">
                 <label for="itemcategory">Category</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="text" class="form-control rounded-3" id="itemPrice" placeholder="">
+                <input type="text" class="form-control rounded-3" name="itemPrice" [(ngModel)]="item.itemPrice" id="itemPrice" placeholder="">
                 <label for="itemPrice">Price</label>
               </div>
-              <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Submit</button>
+              <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" (click)="createStudent()" type="submit">Submit</button>
               <small class="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small>
             </form>
           </div>
