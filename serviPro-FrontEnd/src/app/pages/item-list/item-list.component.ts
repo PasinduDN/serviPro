@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrl: './item-list.component.css'
 })
 export class ItemListComponent {
+  
+  private http;
 
+  constructor (private httpClient:HttpClientModule){
+    this.http=httpClient;
+  }
+
+  public item = {
+    itemCode:null,
+    itemName:null,
+    category:null,
+    itemPrice:null
+  }
 }

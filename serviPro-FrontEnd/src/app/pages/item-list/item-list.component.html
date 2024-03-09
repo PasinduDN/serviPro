@@ -1,1 +1,63 @@
-<p>item-list works!</p>
+<div class="container min-vh-100 rounded-border ">
+    <!-- <p class="text-light">item-list </p> -->
+
+<div class="row px-4 ">
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col custom-column1-color custom-column1 p-3 rounded-border m-1">
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Item</button>
+    </div>
+</div>
+
+<div class="row px-4 ">
+    <table class="table table-hover table-dark table-bordered table-borderless mb-0  w-100">
+        <thead>
+          <tr>
+            <th scope="col"> Id </th>
+            <th scope="col"> Name</th>
+            <th scope="col"> Category</th>
+            <th scope="col"> Price</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-5 pt-0">
+            <form class="">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control rounded-3" id="itemCode" placeholder="">
+                <label for="itemCode">Item Code</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control rounded-3" id="itemName" placeholder="">
+                <label for="itemName">Name</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control rounded-3" id="itemcategory" placeholder="">
+                <label for="itemcategory">Category</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control rounded-3" id="itemPrice" placeholder="">
+                <label for="itemPrice">Price</label>
+              </div>
+              <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Submit</button>
+              <small class="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small>
+            </form>
+          </div>
+      </div>
+    </div>
+  </div>
+
+</div>

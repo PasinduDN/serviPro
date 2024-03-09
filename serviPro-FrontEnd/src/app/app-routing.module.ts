@@ -25,6 +25,21 @@ const routes: Routes = [
   {
     path:"pickUp",
     component:PickUpComponent
+  },{
+    path:"itemList",
+    component:ItemListComponent
+  },
+  {
+    path:"pickUpSettle",
+    component:PickUpSettleComponent
+  },
+  {
+    path:"tablePlaceOrder",
+    component:TablePlaceOrderComponent
+  },
+  {
+    path:"tableOrderPlace",
+    component:TableOrderSettleComponent
   }
 ];
 
