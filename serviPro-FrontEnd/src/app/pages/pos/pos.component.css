@@ -1,0 +1,13 @@
+.container{
+    background-color: #1E1D2A;
+}
+
+.rounded-border {
+    border-radius: 15px; 
+    padding: 20px; 
+}
+
+.custom-column1 .btn {
+    width: 100%;
+    margin-bottom: 10px; 
+}
