@@ -17,3 +17,7 @@ S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 ]
 -.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
+`
+0src/main/java/edu/testing/entity/ItemEntity.java,7\6\761ac73201b84391c7f849e30f8929fb627df4ac
+h
+8src/main/java/edu/testing/repository/ItemRepository.java,4\f\4f7157aedb91fdb79789814d1ccf6fbd5e930cda
