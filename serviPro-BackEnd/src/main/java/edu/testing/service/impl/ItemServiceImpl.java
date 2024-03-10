@@ -1,9 +1,10 @@
-package edu.testing.service;
+package edu.testing.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.testing.dto.Item;
 import edu.testing.entity.ItemEntity;
 import edu.testing.repository.ItemRepository;
+import edu.testing.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ItemServiceImpl implements ItemService{
+public class ItemServiceImpl implements ItemService {
 
     @Autowired
     ItemRepository itemRepository;

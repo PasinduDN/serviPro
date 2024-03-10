@@ -21,3 +21,17 @@ h
 8src/main/java/edu/testing/repository/ItemRepository.java,4\f\4f7157aedb91fdb79789814d1ccf6fbd5e930cda
 [
 +src/main/java/edu/testing/dto/Response.java,1\a\1ac8237b0423c7e0a16b1f60ac509f9310ed7146
+l
+<src/main/java/edu/testing/controller/CategoryController.java,8\f\8f11b73c626f24a63ebe4e58f056d4ba337673d9
+[
++src/main/java/edu/testing/dto/Category.java,7\8\78623e37a764730f2fc7028688d189516c6e6ba9
+d
+4src/main/java/edu/testing/entity/CategoryEntity.java,f\b\fb415c525d645bfc9ed72d9391f33e84ef1bdcbe
+l
+<src/main/java/edu/testing/repository/CategoryRepository.java,6\0\606a2bbfe6dd622f61a3b0b4b33d07cb8110db14
+k
+;src/main/java/edu/testing/service/impl/ItemServiceImpl.java,9\a\9ae494049c3d4e353e3b82cc20229163c84300bb
+o
+?src/main/java/edu/testing/service/impl/CategoryServiceImpl.java,8\9\89de7e9b517118686515131b2ab187cea84261a1
+f
+6src/main/java/edu/testing/service/CategoryService.java,5\7\57a62b94b92d23b1d50035f1769dc12a69951827
