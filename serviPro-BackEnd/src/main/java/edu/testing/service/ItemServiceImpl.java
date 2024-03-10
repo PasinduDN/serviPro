@@ -8,6 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class ItemServiceImpl implements ItemService{
 
@@ -36,5 +41,32 @@ public class ItemServiceImpl implements ItemService{
         ItemEntity itemEntity = mapper.convertValue(item, ItemEntity.class);
 
         return itemRepository.save(itemEntity);
+    }
+
+    @Override
+    public List<Item> retriveItem(){
+
+        List<Item> list = new ArrayList<>();
+        Iterable<ItemEntity> itemList = itemRepository.findAll();
+        Iterator<ItemEntity> iterator = itemList.iterator();
+
+        while (iterator.hasNext()){
+            ItemEntity entity = iterator.next();
+            Item item = mapper.convertValue(entity, Item.class);
+            list.add(item);
+        }
+
+        return list;
+    }
+
+    @Override
+    public boolean removeItem(Long id){
+        Optional<ItemEntity> itemEntityOptional = itemRepository.findById(id);
+
+        if (itemEntityOptional.isPresent()){
+            itemRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 }

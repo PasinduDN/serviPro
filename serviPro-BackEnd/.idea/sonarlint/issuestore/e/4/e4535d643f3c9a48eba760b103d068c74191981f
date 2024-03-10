@@ -1,5 +1,16 @@
 
 _
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8ßè˜â1
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8ŒÇ·¼â1
+]	java:S125"<This block of commented-out lines of code should be removed.(Ê€êıÿÿÿÿ8Ç·¼â1
+]	java:S125/"<This block of commented-out lines of code should be removed.(‹¢ÃÙıÿÿÿÿ8–Ç·¼â1
+X	java:S1252"<This block of commented-out lines of code should be removed.(–ùÙ8—Ç·¼â1
+n
+java:S1128"LRemove this unused import 'org.hibernate.sql.ast.tree.expression.Collation'.(Ö€–íÿÿÿÿÿ8€ş·¼â1
+[
+java:S1128	">Remove this unused import 'org.w3c.dom.stylesheets.LinkStyle'.(ÙÌ¾å8€ş·¼â1
 M
-java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8¿Ğ‘©â1
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8€ş·¼â1
+T
+java:S1128"2Remove this unused import 'java.util.Collections'.(¢³ïÓşÿÿÿÿ8€ş·¼â1
+L
+java:S1128"*Remove this unused import 'java.util.Map'.(¼è½Òşÿÿÿÿ8€ş·¼â1

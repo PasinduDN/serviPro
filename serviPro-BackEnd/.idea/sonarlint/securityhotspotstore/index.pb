@@ -2,8 +2,6 @@
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 S
-#src/main/java/org/example/Main.java,0\b\0ba1b9c7a4878802f938e331cc2d8a042087ec6b
-S
 #src/main/java/edu/testing/Main.java,f\6\f607a16798f06b73a5779ae4b34845eb294eaaf1
 W
 'src/main/java/edu/testing/dto/Item.java,b\9\b96a84a191ad9a9c881d546a7b024ac5eae7a7c2
@@ -21,3 +19,5 @@ S
 0src/main/java/edu/testing/entity/ItemEntity.java,7\6\761ac73201b84391c7f849e30f8929fb627df4ac
 h
 8src/main/java/edu/testing/repository/ItemRepository.java,4\f\4f7157aedb91fdb79789814d1ccf6fbd5e930cda
+[
++src/main/java/edu/testing/dto/Response.java,1\a\1ac8237b0423c7e0a16b1f60ac509f9310ed7146
