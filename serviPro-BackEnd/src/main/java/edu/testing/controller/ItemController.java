@@ -33,6 +33,12 @@ public class ItemController {
         return itemService.addItem(item);
     }
 
+    @PatchMapping("/updateItem")
+    public ItemEntity updateItem(@RequestBody Item item) throws InterruptedException {
+        Thread.sleep(3000);
+        return itemService.addItem(item);
+    }
+
     @GetMapping("/getItem")
      public List<Item> getItems(){
         return itemService.retriveItem();
