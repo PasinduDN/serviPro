@@ -11,6 +11,7 @@ import { PickUpSettleComponent } from './pages/pick-up-settle/pick-up-settle.com
 import { PosComponent } from './pages/pos/pos.component';
 import { TableOrderSettleComponent } from './pages/table-order-settle/table-order-settle.component';
 import { TablePlaceOrderComponent } from './pages/table-place-order/table-place-order.component';
+import { CategoriesComponent } from './pages/categories/categories.component';
 
 
 const routes: Routes = [
@@ -40,6 +41,10 @@ const routes: Routes = [
   {
     path:"tableOrderPlace",
     component:TableOrderSettleComponent
+  },
+  {
+    path:"category",
+    component:CategoriesComponent
   }
 ];
 

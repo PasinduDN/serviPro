@@ -2,45 +2,45 @@
 
 <div class=" custom-column1 min-vh-100 d-flex flex-column flex-shrink-0 p-3 " >
     <!-- <hr> -->
-    <ul class="nav nav-pills flex-column mb-auto text-light">
-      <li routerLink="/" class="nav-item ite">
-        <a class="nav-link active" aria-current="page">
+    <ul class="nav nav-pills flex-column mb-auto ">
+      <li routerLink="/" (click)="setSelectedMenu('home')" class="nav-item ite">
+        <a [ngClass]="{'active':selectedMenu == 'home'}" class="nav-link link-body-emphasis text-light" aria-current="page">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#dashBoard"/></svg>
           DashBoard
         </a>
       </li>
-      <li routerLink="/pos">
-        <a  class="nav-link link-body-emphasis text-light">
+      <li routerLink="/pos" (click)="setSelectedMenu('pos')" >
+        <a [ngClass]="{'active':selectedMenu == 'pos'}" class="nav-link link-body-emphasis text-light">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#pos"/></svg>
           POS
         </a>
       </li>
-      <li>
-        <a  class="nav-link link-body-emphasis text-light">
+      <li (click)="setSelectedMenu('orders')">
+        <a [ngClass]="{'active':selectedMenu == 'orders'}" class="nav-link link-body-emphasis text-light">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#orders"/></svg>
           Orders
         </a>
       </li>
-      <li>
-        <a routerLink="/itemList" class="nav-link link-body-emphasis text-light">
+      <li routerLink="/itemList" (click)="setSelectedMenu('items')">
+        <a [ngClass]="{'active':selectedMenu == 'items'}"  class="nav-link link-body-emphasis text-light">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#items"/></svg>
           Items
         </a>
       </li>
-      <li>
-        <a  class="nav-link link-body-emphasis text-light">
+      <li routerLink="/category" (click)="setSelectedMenu('category')">
+        <a [ngClass]="{'active':selectedMenu == 'category'}" class="nav-link link-body-emphasis text-light">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#categories"/></svg>
           Categories
         </a>
       </li>
-      <li>
-        <a  class="nav-link link-body-emphasis text-light">
+      <li (click)="setSelectedMenu('waiter')">
+        <a [ngClass]="{'active':selectedMenu == 'waiter'}" class="nav-link link-body-emphasis text-light">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#waiters"/></svg>
           Waiters
         </a>
       </li>
-      <li>
-        <a  class="nav-link link-body-emphasis text-light">
+      <li (click)="setSelectedMenu('report')">
+        <a [ngClass]="{'active':selectedMenu == 'report'}" class="nav-link link-body-emphasis text-light">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#report"/></svg>
           Report
         </a>

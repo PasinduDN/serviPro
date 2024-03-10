@@ -78,4 +78,28 @@ export class ItemListComponent implements OnInit {
     this.selectedItem = item;
     console.log(item)
   }
+
+  btncanceloption(){
+    this.item = {
+      itemid: null,
+      itemCode: null,
+      itemName: null,
+      category: null,
+      itemPrice: null
+    }
+  }
+
+  updateItem() {
+    this.isSubmissionDisabled = true;
+    this.http
+      .patch('http://localhost:8080/item/updateItem', this.selectedItem)
+      .subscribe(data => {
+        console.log(data);
+        this.loadItem();
+        this.isSubmissionDisabled = false;
+        this.selectedItem = {};
+        
+      })
+  }
+
 }

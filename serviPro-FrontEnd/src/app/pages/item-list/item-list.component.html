@@ -39,7 +39,10 @@
             <td>{{item.itemName}}</td>
             <td>{{item.category}}</td>
             <td>{{item.itemPrice}}</td>
-            <td><button (click)="setSelectedItem(item)" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"> Remove </button></td>
+            <td>
+              <button (click)="setSelectedItem(item)" class="btn btn-info " data-bs-toggle="modal" data-bs-target="#updateItem" > Update </button>
+              <button (click)="setSelectedItem(item)" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#deleteModal"> Remove </button>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -71,7 +74,21 @@
                 <input type="text" class="form-control rounded-3" name="itemPrice" [(ngModel)]="item.itemPrice" id="itemPrice" placeholder="">
                 <label for="itemPrice">Price</label>
               </div>
-              <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" (click)="createItem()" type="submit" [disabled]="isSubmissionDisabled" data-bs-dismiss="modal" aria-label="Close">Submit</button>
+              <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <button 
+                class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" 
+                (click)="createItem()" 
+                type="submit" 
+                [disabled]="isSubmissionDisabled" 
+                data-bs-dismiss="modal" 
+                aria-label="Close"  
+                [disabled]="isSubmissionDisabled || !item.itemCode || !item.itemName || !item.category ||!item.itemPrice">
+                  Register
+              </button>
+              <button type="button" class="btn btn-outline-danger btn-lg px-4" data-bs-dismiss="modal" aria-label="Close" (click)="btncanceloption()">Cancel</button>
+
+              </div>
+              
               <small class="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small>
             </form>
           </div>
@@ -81,7 +98,7 @@
 </div>
 
 
-<!-- Modal - Delete Successfully -->
+<!-- Modal - Delete Conformation -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -89,7 +106,29 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body p-5 pt-0">
-          <h1 class="display-5 fw-bold text-body-emphasis">Centered hero</h1>
+          <h1 class="display-5 fw-bold text-body-emphasis">Confirme Remove Action?</h1>
+        <div class=" mx-auto">
+          <p class="lead mb-4">You cannot revert this action...</p>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <button type="button" (click)="deleteItem()" class="btn btn-primary btn-lg px-4 gap-3" data-bs-dismiss="modal" aria-label="Close">Yes, Delete</button>
+            <button type="button" class="btn btn-outline-secondary btn-lg px-4" data-bs-dismiss="modal" aria-label="Close">No Thanks</button>
+          </div>
+        </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal - Delete Successfully -->
+<div class="modal fade" id="deleteSuccessModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-5 pt-0">
+          <h1 class="display-5 fw-bold text-body-emphasis">Student Registerd Successfully </h1>
         <div class=" mx-auto">
           <p class="lead mb-4">text here...</p>
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
@@ -97,6 +136,54 @@
             <button type="button" class="btn btn-outline-secondary btn-lg px-4" data-bs-dismiss="modal" aria-label="Close">No Thanks</button>
           </div>
         </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal - Update Item-->
+<div class="modal fade" id="updateItem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-5 pt-0">
+          <form class="">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control rounded-3" name="itemCode" [(ngModel)]="selectedItem && selectedItem.itemCode" [ngModelOptions]="{standalone: true}" id="itemCode" placeholder="">
+              <label for="itemCode"></label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control rounded-3" name="itemName" [(ngModel)]="selectedItem && selectedItem.itemName"  [ngModelOptions]="{standalone: true}" id="itemName" placeholder="">
+              <label for="itemName"></label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control rounded-3" name="itemcategory" [(ngModel)]="selectedItem && selectedItem.category" [ngModelOptions]="{standalone: true}" id="itemcategory" placeholder="">
+              <label for="itemcategory"></label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control rounded-3" name="itemPrice" [(ngModel)]="selectedItem && selectedItem.itemPrice"  [ngModelOptions]="{standalone: true}" id="itemPrice" placeholder="">
+              <label for="itemPrice"></label>
+            </div>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+              <button 
+              class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" 
+              (click)="deleteItem()" 
+              (click)="updateItem()" 
+              type="submit" 
+              [disabled]="isSubmissionDisabled" 
+              data-bs-dismiss="modal" 
+              aria-label="Close">
+                Update
+            </button>
+            <button type="button" class="btn btn-outline-danger btn-lg px-4" data-bs-dismiss="modal" aria-label="Close" (click)="btncanceloption()">Cancel</button>
+
+            </div>
+            
+            <small class="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small>
+          </form>
         </div>
     </div>
   </div>
