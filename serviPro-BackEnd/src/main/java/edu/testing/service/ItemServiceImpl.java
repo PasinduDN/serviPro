@@ -31,14 +31,14 @@ public class ItemServiceImpl implements ItemService{
     public ItemEntity addItem(@RequestBody Item item){
 
 //        <------------ Model to Entity Convertion Manual ----------->
-//        ItemEntity itemEntity = new ItemEntity();
-//        itemEntity.setItemCode(item.getItemCode());
-//        itemEntity.setItemName(item.getItemName());
-//        itemEntity.setCategory(item.getCategory());
-//        itemEntity.setItemPrice(item.getItemPrice());
+        ItemEntity itemEntity = new ItemEntity();
+        itemEntity.setItemCode(item.getItemCode());
+        itemEntity.setItemName(item.getItemName());
+        itemEntity.setCategory(item.getCategory());
+        itemEntity.setItemPrice(item.getItemPrice());
 
 //        <------------ Model to Entity Convertion Auto ----------->
-        ItemEntity itemEntity = mapper.convertValue(item, ItemEntity.class);
+//        ItemEntity itemEntity = mapper.convertValue(item, ItemEntity.class);
 
         return itemRepository.save(itemEntity);
     }
@@ -52,7 +52,12 @@ public class ItemServiceImpl implements ItemService{
 
         while (iterator.hasNext()){
             ItemEntity entity = iterator.next();
-            Item item = mapper.convertValue(entity, Item.class);
+            Item item = new Item();
+            item.setId(entity.getId());
+            item.setItemCode(entity.getItemCode());
+            item.setItemName(entity.getItemName());
+            item.setCategory(entity.getCategory());
+            item.setItemPrice(entity.getItemPrice());
             list.add(item);
         }
 
