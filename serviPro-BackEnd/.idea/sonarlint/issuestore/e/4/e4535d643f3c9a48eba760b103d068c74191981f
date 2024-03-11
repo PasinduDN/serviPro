@@ -2,10 +2,9 @@
 _
 java:S6813"BRemove this field injection and use constructor injection instead.(êæÄÞ8ŒÇ·¼â1
 y
-java:S4144%"WUpdate this method so that its implementation is not identical to "addItem" on line 31.(Ä–Ž¶üÿÿÿÿ8ŠÝÃÌâ1
-]	java:S125"<This block of commented-out lines of code should be removed.(Ê€êýÿÿÿÿ8Ç·¼â1
-]	java:S1255"<This block of commented-out lines of code should be removed.(‹¢ÃÙýÿÿÿÿ8–Ç·¼â1
-X	java:S1258"<This block of commented-out lines of code should be removed.(–ùÙ8—Ç·¼â1
+java:S4144"WUpdate this method so that its implementation is not identical to "addItem" on line 25.(Ä–Ž¶üÿÿÿÿ8ŠÝÃÌâ1
+]	java:S125/"<This block of commented-out lines of code should be removed.(‹¢ÃÙýÿÿÿÿ8–Ç·¼â1
+X	java:S1252"<This block of commented-out lines of code should be removed.(–ùÙ8—Ç·¼â1
 n
 java:S1128"LRemove this unused import 'org.hibernate.sql.ast.tree.expression.Collation'.(Ö€–íÿÿÿÿÿ8¤ÝÃÌâ1
 [

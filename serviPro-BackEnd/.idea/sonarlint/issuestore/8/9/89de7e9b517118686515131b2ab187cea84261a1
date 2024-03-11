@@ -1,3 +1,5 @@
 
-d
-java:S2094"BRemove this empty class, write its code or make it an "interface".(Íü½¦ûÿÿÿÿ8ÿìÏâ1
+_
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8¯à·åâ1
+_
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8°à·åâ1

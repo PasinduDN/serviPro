@@ -21,12 +21,6 @@ public class ItemController {
     @Autowired
     ItemService itemService;
 
-//    @GetMapping("/getItem")
-//    public Iterable<ItemEntity> getItem() throws InterruptedException {
-//        Thread.sleep(3000);
-//        return itemService.getItem();
-//    }
-
     @PostMapping("/addItem")
     public ItemEntity addItem(@RequestBody Item item) throws InterruptedException {
         Thread.sleep(3000);
