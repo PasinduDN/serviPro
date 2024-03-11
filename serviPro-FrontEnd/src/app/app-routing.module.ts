@@ -12,6 +12,7 @@ import { PosComponent } from './pages/pos/pos.component';
 import { TableOrderSettleComponent } from './pages/table-order-settle/table-order-settle.component';
 import { TablePlaceOrderComponent } from './pages/table-place-order/table-place-order.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
+import { WaitersComponent } from './pages/waiters/waiters.component';
 
 
 const routes: Routes = [
@@ -45,6 +46,9 @@ const routes: Routes = [
   {
     path:"category",
     component:CategoriesComponent
+  },{
+    path:"waiter",
+    component:WaitersComponent
   }
 ];
 

@@ -16,6 +16,7 @@ import { TableOrderSettleComponent } from './pages/table-order-settle/table-orde
 import { TablePlaceOrderComponent } from './pages/table-place-order/table-place-order.component';
 import { FormsModule } from '@angular/forms';
 import { CategoriesComponent } from './pages/categories/categories.component';
+import { WaitersComponent } from './pages/waiters/waiters.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CategoriesComponent } from './pages/categories/categories.component';
     PosComponent,
     TableOrderSettleComponent,
     TablePlaceOrderComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    WaitersComponent
   ],
   imports: [
     BrowserModule,

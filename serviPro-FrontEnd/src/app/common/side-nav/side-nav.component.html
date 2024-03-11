@@ -33,7 +33,7 @@
           Categories
         </a>
       </li>
-      <li (click)="setSelectedMenu('waiter')">
+      <li routerLink="/waiter" (click)="setSelectedMenu('waiter')">
         <a [ngClass]="{'active':selectedMenu == 'waiter'}" class="nav-link link-body-emphasis text-light">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#waiters"/></svg>
           Waiters
