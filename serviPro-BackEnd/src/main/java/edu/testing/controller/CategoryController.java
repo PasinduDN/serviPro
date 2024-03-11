@@ -38,8 +38,8 @@ public class CategoryController {
         }
     }
 
-    @PatchMapping("/updateItem")
-    public CategoryEntity updateCategory(Category category){
+    @PatchMapping("/updateCategory")
+    public CategoryEntity updateCategory(@RequestBody Category category){
         return categoryService.addCategory(category);
     }
 
