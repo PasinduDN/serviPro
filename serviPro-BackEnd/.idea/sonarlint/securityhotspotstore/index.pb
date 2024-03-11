@@ -7,8 +7,6 @@ W
 'src/main/java/edu/testing/dto/Item.java,b\9\b96a84a191ad9a9c881d546a7b024ac5eae7a7c2
 h
 8src/main/java/edu/testing/controller/ItemController.java,e\4\e4535d643f3c9a48eba760b103d068c74191981f
-f
-6src/main/java/edu/testing/service/ItemServiceImpl.java,6\d\6df137e2bca9a5c79b7c3e537df60d192cc186af
 b
 2src/main/java/edu/testing/service/ItemService.java,f\8\f8ff816dc1ab4ba47ee20c1e4ca8293e1450aaab
 S
@@ -35,3 +33,5 @@ o
 ?src/main/java/edu/testing/service/impl/CategoryServiceImpl.java,8\9\89de7e9b517118686515131b2ab187cea84261a1
 f
 6src/main/java/edu/testing/service/CategoryService.java,5\7\57a62b94b92d23b1d50035f1769dc12a69951827
+f
+6src/main/java/edu/testing/service/CategorySErvice.java,2\6\26c31f9a19d6410e7176ee5d54eeba4c88d0aa02
