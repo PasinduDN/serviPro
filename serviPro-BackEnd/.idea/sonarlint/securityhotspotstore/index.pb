@@ -35,3 +35,15 @@ f
 6src/main/java/edu/testing/service/CategoryService.java,5\7\57a62b94b92d23b1d50035f1769dc12a69951827
 f
 6src/main/java/edu/testing/service/CategorySErvice.java,2\6\26c31f9a19d6410e7176ee5d54eeba4c88d0aa02
+j
+:src/main/java/edu/testing/controller/WaiterController.java,7\3\7344c45349ed9896abfc353e1c02861ad83f69a2
+Y
+)src/main/java/edu/testing/dto/Waiter.java,3\9\39960fc30646dc7245df79d74202ef2eba6d8745
+b
+2src/main/java/edu/testing/entity/WaiterEntity.java,9\3\9348355e3cf609b27c1a1fc8959a2361b41652fb
+j
+:src/main/java/edu/testing/repository/WaiterRepository.java,2\f\2f6f0490e60ea746a61ec931dd6dd391fb14642b
+m
+=src/main/java/edu/testing/service/impl/WaiterServiceImpl.java,b\e\befc3f518303e92965622007a0726695a036dc19
+d
+4src/main/java/edu/testing/service/WaiterService.java,4\3\43cedb28b4fc1b9bd8518ed60cb66b028ffed369

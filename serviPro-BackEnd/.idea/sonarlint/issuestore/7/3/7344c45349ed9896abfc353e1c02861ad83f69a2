@@ -1,0 +1,9 @@
+
+_
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8Ê¡¹ôâ1
+}
+java:S3923!"[Remove this conditional structure or edit its code blocks so that they're not all the same.(éÕ™Èùÿÿÿÿ8ˆ¢¹ôâ1
+Q
+java:S1128"5Remove this unused import 'edu.testing.dto.Category'.(ù‚¸G8ËÀ¨øâ1
+`
+java:S1128">Remove this unused import 'edu.testing.entity.CategoryEntity'.(ôÖ¥¸üÿÿÿÿ8ËÀ¨øâ1
