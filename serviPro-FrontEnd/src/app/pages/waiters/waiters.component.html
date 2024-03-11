@@ -1,0 +1,221 @@
+<div class="container min-vh-100 rounded-border ">
+    <!-- <p class="text-light">item-list </p> -->
+
+<div class="row px-4 ">
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col custom-column1-color custom-column1 p-3 rounded-border m-1">
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCategory">Add Waiter</button>
+    </div>
+</div>
+
+
+<div *ngIf="!waiterList" class="d-flex justify-content-center text-warning">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<div class="row px-4 ">
+    <div class="col">
+        <table class="table table-hover table-dark table-bordered table-borderless mb-0  w-100 "  *ngIf="waiterList">
+            <thead>
+              <tr>
+                <th scope="col"> # </th>
+                <th scope="col"> Name</th>
+                <th scope="col"> Gender</th>
+                <th scope="col"> National ID</th>
+                <th scope="col"> Age</th>
+                <th scope="col"> ContactNumb </th>
+                <th scope="col"> Action </th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- This is For each  -->
+          <tr *ngFor="let waiter of waiterList; let i = index;">
+            <td>{{i+1}}</td>
+            <td>{{waiter.firstName}} {{waiter.lastName}}</td>
+            <td>{{waiter.gender}}</td>
+            <td>{{waiter.empId}}</td>
+            <td>{{waiter.age}}</td>
+            <td>{{waiter.contactNumb}}</td>
+            <td>
+              <button (click)="setSelectedWaiter(waiter)" class="btn btn-info " data-bs-toggle="modal" data-bs-target="#updateItem" > Update </button>
+              <button (click)="setSelectedWaiter(waiter)" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#deleteModal"> Remove </button>
+            </td>
+          </tr>
+            </tbody>
+          </table>
+    </div>
+  
+    
+</div>
+
+
+
+<!-- Modal - Add Waiter-->
+<div class="modal fade" id="addCategory" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-5 pt-0">
+          <form class="">
+            <!-- <div class="form-floating mb-3">
+              <input type="text" class="form-control rounded-3" name="WaiterID" [(ngModel)]="waiter.waiterId" id="itemCode" placeholder="">
+              <label for="WaiterID">WaiterID</label>
+            </div> -->
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control rounded-3" name="firstName" [(ngModel)]="waiter.firstName" id="itemCode" placeholder="">
+                <label for="firstName">First Name</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control rounded-3" name="lastName" [(ngModel)]="waiter.lastName" id="itemCode" placeholder="">
+                <label for="lastName">Last Name</label>
+              </div>
+              <div class="form-floating mb-3">
+                <!-- <input type="text" class="form-control rounded-3" name="gender" [(ngModel)]="waiter.gender" id="itemCode" placeholder=""> -->
+                <!-- <label for="gender">Gender</label> -->
+                <div class="row">
+                    <div class="col">
+                        <label for="genderSelection"> Gender </label>
+                    </div>
+                    <div class="col">
+                        <select id="genderSelection" [(ngModel)]="waiter.gender" name="gender">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                    
+                    <div class="col"></div>
+                </div>
+                
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control rounded-3" name="empId" [(ngModel)]="waiter.empId" id="itemCode" placeholder="">
+                <label for="empId">National ID</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control rounded-3" name="age" [(ngModel)]="waiter.age" id="itemCode" placeholder="">
+                <label for="age">Age</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control rounded-3" name="contactNumb" [(ngModel)]="waiter.contactNumb" id="itemCode" placeholder="">
+                <label for="ContactNumb">ContactNumb</label>
+              </div>
+
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+              <button 
+              class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" 
+              (click)="createWaiter()" 
+              type="submit" 
+              [disabled]="isSubmitionDisabled" 
+              data-bs-dismiss="modal" 
+              aria-label="Close"  
+              [disabled]="isSubmitionDisabled  ||!waiter.empId">
+                Submit
+            </button>
+            <button 
+              type="button" 
+              class="btn btn-outline-danger btn-lg px-4" 
+              data-bs-dismiss="modal" 
+              aria-label="Close" 
+              (click)="btncanceloption()">
+              Cancel
+            </button>
+
+            </div>
+            
+            <small class="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small>
+          </form>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Modal - Delete Conformation -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-5 pt-0">
+          <h1 class="display-5 fw-bold text-body-emphasis">Confirme Remove Action?</h1>
+        <div class=" mx-auto">
+          <p class="lead mb-4">You cannot revert this action...</p>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <button type="button" (click)="deleteItem()" class="btn btn-primary btn-lg px-4 gap-3" data-bs-dismiss="modal" aria-label="Close">Yes, Delete</button>
+            <button type="button" class="btn btn-outline-secondary btn-lg px-4" data-bs-dismiss="modal" aria-label="Close">No Thanks</button>
+          </div>
+        </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal - Update Item-->
+<div class="modal fade" id="updateItem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-5 pt-0">
+          <form class="">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control rounded-3" name="firstName" [(ngModel)]="selectedWaiter && selectedWaiter.firstName" id="firstName" placeholder="">
+                <label for="firstName">First Name</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control rounded-3" name="lastName" [(ngModel)]="selectedWaiter && selectedWaiter.lastName" id="lastName" placeholder="">
+                <label for="lastName">Last Name</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control rounded-3" name="gender" [(ngModel)]="selectedWaiter && selectedWaiter.gender" id="gender" placeholder="">
+                <label for="gender">Gender</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control rounded-3" name="empId" [(ngModel)]="selectedWaiter && selectedWaiter.empId" id="empId" placeholder="">
+                <label for="empId">National ID</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control rounded-3" name="age" [(ngModel)]="selectedWaiter && selectedWaiter.age" id="age" placeholder="">
+                <label for="age">Age</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control rounded-3" name="contactNumb" [(ngModel)]="selectedWaiter && selectedWaiter.contactNumb" id="age" placeholder="">
+                <label for="ContactNumb">ContactNumb</label>
+              </div>
+
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+              <button 
+              class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" 
+              (click)="updateItem()" 
+              type="submit" 
+              data-bs-dismiss="modal" 
+              aria-label="Close">
+                Update
+            </button>
+            <button 
+                type="button" 
+                class="btn btn-outline-danger btn-lg px-4" 
+                data-bs-dismiss="modal" 
+                aria-label="Close" 
+                (click)="btncanceloption()">
+                Cancel
+            </button>
+
+            </div>
+            
+            <small class="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small>
+          </form>
+        </div>
+    </div>
+  </div>
+</div>

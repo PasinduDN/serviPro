@@ -71,9 +71,10 @@ export class CategoriesComponent implements OnInit {
   updateItem(){
     this.isSubmitionDisabled=true;
     this.http
-      .patch('http://localhost:8080/category/',this.selectedCategory)
+      .patch('http://localhost:8080/category/updateCategory',this.selectedCategory)
       .subscribe(data => {
         console.log(data)
+        this.deleteItem();
         this.loadItem();
         this.selectedCategory={};
         this.isSubmitionDisabled=false;
