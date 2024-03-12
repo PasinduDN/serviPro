@@ -12,6 +12,8 @@ export class ItemListComponent implements OnInit {
   public http;
   public itemList: any;
   public selectedItem:any;
+  public categoryList:any;
+  public selectedCategory: any;
 
   public isSubmissionDisabled = false;
 
@@ -22,6 +24,7 @@ export class ItemListComponent implements OnInit {
   // ngOnInit is auto calling function. when load component function is start 
   ngOnInit(): void {
     this.loadItem();
+    this.loadCategories();
   }
 
   public item = {
@@ -41,6 +44,7 @@ export class ItemListComponent implements OnInit {
         this.loadItem();
         this.isSubmissionDisabled = false;
         this.selectedItem = {};
+        
         
         this.item = {
           itemid: null,
@@ -99,4 +103,19 @@ export class ItemListComponent implements OnInit {
       })
   }
 
+  loadCategories(){
+    this.http
+      .get('http://localhost:8080/category/getCategory')
+      .subscribe(data =>{
+        console.log(data)
+        this.categoryList=data;
+      })
+  }
+
+  setSelectedCategory(selectcategory:any){
+    this.selectedCategory=selectcategory;
+    console.log(selectcategory);
+    this.item.category=selectcategory.categoryName;
+    console.log(selectcategory.categoryName);
+  }
 }

@@ -20,7 +20,7 @@
 <div class="row px-4 ">
     <div class="col">
         <table class="table table-hover table-dark table-bordered table-borderless mb-0  w-100 "  *ngIf="waiterList">
-            <thead>
+          <thead>
               <tr>
                 <th scope="col"> # </th>
                 <th scope="col"> Name</th>
@@ -30,23 +30,23 @@
                 <th scope="col"> ContactNumb </th>
                 <th scope="col"> Action </th>
               </tr>
-            </thead>
-            <tbody>
-              <!-- This is For each  -->
-          <tr *ngFor="let waiter of waiterList; let i = index;">
-            <td>{{i+1}}</td>
-            <td>{{waiter.firstName}} {{waiter.lastName}}</td>
-            <td>{{waiter.gender}}</td>
-            <td>{{waiter.empId}}</td>
-            <td>{{waiter.age}}</td>
-            <td>{{waiter.contactNumb}}</td>
-            <td>
-              <button (click)="setSelectedWaiter(waiter)" class="btn btn-info " data-bs-toggle="modal" data-bs-target="#updateItem" > Update </button>
-              <button (click)="setSelectedWaiter(waiter)" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#deleteModal"> Remove </button>
-            </td>
-          </tr>
-            </tbody>
-          </table>
+          </thead>
+          <tbody>
+                  <!-- This is For each  -->
+              <tr *ngFor="let waiter of waiterList; let i = index;">
+                <td>{{i+1}}</td>
+                <td>{{waiter.firstName}} {{waiter.lastName}}</td>
+                <td>{{waiter.gender}}</td>
+                <td>{{waiter.empId}}</td>
+                <td>{{waiter.age}}</td>
+                <td>{{waiter.contactNumb}}</td>
+                <td>
+                  <button (click)="setSelectedWaiter(waiter)" class="btn btn-info " data-bs-toggle="modal" data-bs-target="#updateItem" > Update </button>
+                  <button (click)="setSelectedWaiter(waiter)" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#deleteModal"> Remove </button>
+                </td>
+              </tr>
+          </tbody>
+        </table>
     </div>
   
     
