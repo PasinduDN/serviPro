@@ -12,48 +12,20 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>mdo</td>
-                </tr>
-                <tr>
-                  <td>fat</td>
-                </tr>
-                <tr>
-                  <td>twitter</td>
-                </tr>
-                <tr>
-                  <td>mdo</td>
-                </tr>
-                <tr>
-                  <td>fat</td>
-                </tr>
-                <tr>
-                  <td>twitter</td>
-                </tr>
-                <tr>
-                  <td>twitter</td>
-                </tr>
-                <tr>
-                  <td>twitter</td>
-                </tr>
-                <tr>
-                  <td>twitter</td>
-                </tr>
-                <tr>
-                    <td>twitter</td>
-                  </tr>
+                <tr *ngFor="let category of categoryList;">
+                  <td (click)="selectedCategory(category)">{{category.categoryName}}</td>
+                </tr>           
               </tbody>
             </table>
-          
           </div>
         </div> 
     
         <div class="col-3  custom-column1-color p-3 rounded-border m-1">
-            <button class="btn btn-outline-warning mb-2 gap-3"> Food 1 </button>
-            <button class="btn btn-outline-warning mb-2">Food 2 </button>   
-            <button class="btn btn-outline-warning mb-2"> Food 3 </button>   
-            <button class="btn btn-outline-warning mb-2"> Food 4 </button>   
-            <button class="btn btn-outline-warning mb-2"> Food 5 </button>   
+            <button class="btn btn-outline-warning mb-2 gap-3"></button>
+            <div *ngFor="let itemName of filterdItemArray" class="btn btn-outline-warning mb-2 gap-3">  
+              {{itemName}}
+            </div>
+            
         </div>
     
         <div class="col-4  custom-column1-color custom-column1 p-3 rounded-border ">

@@ -66,9 +66,23 @@
                 <input type="text" class="form-control rounded-3" name="itemName" [(ngModel)]="item.itemName" id="itemName" placeholder="">
                 <label for="itemName">Name</label>
               </div>
-              <div class="form-floating mb-3">
+              <!-- <div class="form-floating mb-3">
                 <input type="text" class="form-control rounded-3" name="itemcategory" [(ngModel)]="item.category" id="itemcategory" placeholder="">
                 <label for="itemcategory">Category</label>
+              </div> -->
+              <div class="form-floating mb-3">
+                <div class="row">
+                    <div class="col">
+                        <label for="genderSelection"> Category </label> 
+                    </div>
+                    <div class="col">
+                        <select id="genderSelection" name="gender" >
+                          <option *ngFor="let category of categoryList" [value]="category" (click)="setSelectedCategory(category)">{{ category.categoryName }}</option>
+                        </select>
+                    </div>
+                    
+                    <div class="col"></div>
+                </div>
               </div>
               <div class="form-floating mb-3">
                 <input type="text" class="form-control rounded-3" name="itemPrice" [(ngModel)]="item.itemPrice" id="itemPrice" placeholder="">
