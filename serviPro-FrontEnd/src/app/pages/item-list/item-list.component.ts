@@ -117,5 +117,6 @@ export class ItemListComponent implements OnInit {
     console.log(selectcategory);
     this.item.category=selectcategory.categoryName;
     console.log(selectcategory.categoryName);
+    this.selectedCategory={}
   }
 }
