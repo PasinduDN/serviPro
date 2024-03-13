@@ -1,9 +1,12 @@
 package edu.testing.controller;
 
 import edu.testing.dto.Category;
+import edu.testing.dto.CategoryUpdateDto;
 import edu.testing.entity.CategoryEntity;
 import edu.testing.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
@@ -27,6 +30,8 @@ public class CategoryController {
         return categoryService.getCategory();
     }
 
+
+
     @DeleteMapping("/{id}")
     public Map removeItem(@PathVariable Long id){
         boolean isRemoved = categoryService.deleteCategory(id);
@@ -38,9 +43,17 @@ public class CategoryController {
         }
     }
 
-    @PatchMapping("/updateCategory")
-    public CategoryEntity updateCategory(@RequestBody Category category){
-        return categoryService.addCategory(category);
+
+    @PostMapping("/updateCategory")
+    public ResponseEntity updateCategory(@RequestBody CategoryUpdateDto categoryUpdateDto){
+        boolean updated = categoryService.updateCategory(categoryUpdateDto);
+
+        if (updated) {
+            return ResponseEntity.ok(Collections.singletonMap("status", "Item updated"));
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Collections.singletonMap("status", "Category not found"));
+        }
     }
+
 
 }
