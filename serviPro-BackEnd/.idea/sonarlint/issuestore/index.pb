@@ -47,3 +47,11 @@ m
 =src/main/java/edu/testing/service/impl/WaiterServiceImpl.java,b\e\befc3f518303e92965622007a0726695a036dc19
 d
 4src/main/java/edu/testing/service/WaiterService.java,4\3\43cedb28b4fc1b9bd8518ed60cb66b028ffed369
+r
+Bsrc/main/java/edu/testing/repository/CategoryNativeRepository.java,1\3\135cd4565a071cd3abde19d5a2f661e526ec756c
+^
+.src/main/java/edu/testing/repository/impl.java,4\a\4a0ea1020ce0a75118833571c8052d374d707478
+{
+Ksrc/main/java/edu/testing/repository/impl/CategoryNativeRepositoryImpl.java,d\4\d468e8aeeac76ae2194ee87c8371ea295395b424
+d
+4src/main/java/edu/testing/dto/CategoryUpdateDto.java,0\d\0db9ce3e9bf228dbaa78f4e075f8985694fc2921

@@ -1,0 +1,10 @@
+
+_
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8¶Ğ·Éã1
+]	java:S125"<This block of commented-out lines of code should be removed.(¥”ç°úÿÿÿÿ8ÎÀıÉã1
+R
+java:S1128"5Remove this unused import 'org.hibernate.sql.Update'.(‚Äşƒ8Íº‡Êã1
+n
+java:S1128"LRemove this unused import 'org.hibernate.sql.ast.tree.expression.Collation'.(Ö€–íÿÿÿÿÿ8Íº‡Êã1
+P
+java:S1128".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ8Íº‡Êã1

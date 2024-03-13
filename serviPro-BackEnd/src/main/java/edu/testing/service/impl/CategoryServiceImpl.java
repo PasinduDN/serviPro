@@ -2,7 +2,9 @@ package edu.testing.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.testing.dto.Category;
+import edu.testing.dto.CategoryUpdateDto;
 import edu.testing.entity.CategoryEntity;
+import edu.testing.repository.CategoryNativeRepository;
 import edu.testing.repository.CategoryRepository;
 import edu.testing.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,9 @@ public class CategoryServiceImpl implements CategoryService {
     @Autowired
     ObjectMapper mapper;
 
+    @Autowired
+    CategoryNativeRepository categoryNativeRepository;
+
     @Override
     public CategoryEntity addCategory(Category category){
         CategoryEntity categoryEntity = mapper.convertValue(category, CategoryEntity.class);
@@ -32,6 +37,7 @@ public class CategoryServiceImpl implements CategoryService {
     public Iterable<CategoryEntity> getCategory(){
         return categoryRepository.findAll();
     }
+
 
     @Override
     public List<Category> retriveCategory(){
@@ -56,6 +62,27 @@ public class CategoryServiceImpl implements CategoryService {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public boolean updateCategory(CategoryUpdateDto categoryUpdateDto){
+        CategoryEntity categoryEntity = mapper.convertValue(categoryUpdateDto, CategoryEntity.class);
+        Long categoryId = categoryEntity.getCategoryId();
+
+        if(categoryId != null){
+            Optional<CategoryEntity> findCategoryByID= categoryRepository.findById(categoryId);
+
+            if(findCategoryByID.isPresent()){
+                CategoryEntity findCategory = findCategoryByID.get();
+                findCategory.setCategoryName(categoryEntity.getCategoryName());
+                categoryRepository.save(findCategory);
+                return true;
+            }
+        }
+        return false;
+
+//        return categoryNativeRepository.updateCategory(categoryUpdateDto);
+
     }
 
 }
