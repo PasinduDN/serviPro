@@ -1,5 +1,6 @@
 package edu.testing.controller;
 import edu.testing.dto.Item;
+import edu.testing.dto.ItemLoadDto;
 import edu.testing.dto.Response;
 import edu.testing.entity.ItemEntity;
 import edu.testing.service.ItemService;
@@ -22,20 +23,27 @@ public class ItemController {
     ItemService itemService;
 
     @PostMapping("/addItem")
-    public ItemEntity addItem(@RequestBody Item item) throws InterruptedException {
-        Thread.sleep(3000);
-        return itemService.addItem(item);
+    public ItemEntity addItem(@RequestBody ItemLoadDto itemLoadDto) throws InterruptedException {
+        System.out.println("Received item: " + itemLoadDto.toString());
+        return itemService.addItem(itemLoadDto);
+
     }
 
     @PatchMapping("/updateItem")
-    public ItemEntity updateItem(@RequestBody Item item) throws InterruptedException {
+    public ItemEntity updateItem(@RequestBody ItemLoadDto itemLoadDto) throws InterruptedException {
         Thread.sleep(3000);
-        return itemService.addItem(item);
+        return itemService.addItem(itemLoadDto);
     }
 
     @GetMapping("/getItem")
-     public List<Item> getItems(){
+     public List<ItemLoadDto> getItems(){
         return itemService.retriveItem();
+    }
+
+    @PostMapping("/getItemList")
+    public List<ItemEntity> getItenList(@RequestBody ItemLoadDto itemLoadDto){
+        System.out.println("ItemController -> GetMapping -> getItenList");
+        return itemService.getDetailsWhenClickCategory(itemLoadDto);
     }
 
     @DeleteMapping("/{id}")

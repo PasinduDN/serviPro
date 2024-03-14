@@ -1,6 +1,19 @@
 
 _
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8òÙÀâ1
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8†ïóİã1
 _
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8óÙÀâ1
-X	java:S125*"<This block of commented-out lines of code should be removed.(¦è‚ó8ùÙÀâ1
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8‡ïóİã1
+G	java:S106#"+Replace this use of System.out by a logger.(ùÿ8‹ïóİã1
+L	java:S106$"+Replace this use of System.out by a logger.(”ß‹»øÿÿÿÿ8‹ïóİã1
+L	java:S106%"+Replace this use of System.out by a logger.(µæÍ—øÿÿÿÿ8Œïóİã1
+G	java:S1062"+Replace this use of System.out by a logger.(†‘ı™8ïóİã1
+X	java:S1251"<This block of commented-out lines of code should be removed.(¦è‚ó8ïóİã1
+X	java:S125@"<This block of commented-out lines of code should be removed.(úüÏ8ïóİã1
+G	java:S106Y"+Replace this use of System.out by a logger.(Öş·Ö8•ïóİã1
+F	java:S106b"+Replace this use of System.out by a logger.(¢ŠíS8—ïóİã1
+L	java:S106c"+Replace this use of System.out by a logger.(ì½«¬şÿÿÿÿ8—ïóİã1
+L	java:S106d"+Replace this use of System.out by a logger.(´éô…úÿÿÿÿ8—ïóİã1
+G	java:S106f"+Replace this use of System.out by a logger.(±ƒà8™ïóİã1
+L	java:S106j"+Replace this use of System.out by a logger.(Ğºğúÿÿÿÿ8™ïóİã1
+S
+java:S1128"1Remove this unused import 'edu.testing.dto.Item'.(°İñïûÿÿÿÿ8™ïóİã1

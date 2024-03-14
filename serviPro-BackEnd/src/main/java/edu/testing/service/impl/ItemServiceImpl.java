@@ -2,6 +2,7 @@ package edu.testing.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.testing.dto.Item;
+import edu.testing.dto.ItemLoadDto;
 import edu.testing.entity.ItemEntity;
 import edu.testing.repository.ItemRepository;
 import edu.testing.service.ItemService;
@@ -29,39 +30,46 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public ItemEntity addItem(@RequestBody Item item){
+    public ItemEntity addItem(@RequestBody ItemLoadDto itemLoadDto){
 
+        System.out.println("Add Item Start - getCategoryId" +itemLoadDto.getCategoryId() );
+        System.out.println("Add Item Start - getItemCode" +itemLoadDto.getItemCode() );
+        System.out.println("Add Item Start - getItemName" +itemLoadDto.getItemName() );
 //        <------------ Model to Entity Convertion Manual ----------->
         ItemEntity itemEntity = new ItemEntity();
-        itemEntity.setItemCode(item.getItemCode());
-        itemEntity.setItemName(item.getItemName());
-        itemEntity.setCategory(item.getCategory());
-        itemEntity.setItemPrice(item.getItemPrice());
+
+        itemEntity.setId(itemLoadDto.getId());
+        itemEntity.setItemCode(itemLoadDto.getItemCode());
+        itemEntity.setItemName(itemLoadDto.getItemName());
+        itemEntity.setCategory(itemLoadDto.getCategory());
+        itemEntity.setCategoryId(itemLoadDto.getCategoryId());
+        itemEntity.setItemPrice(itemLoadDto.getItemPrice());
 
 //        <------------ Model to Entity Convertion Auto ----------->
 //        ItemEntity itemEntity = mapper.convertValue(item, ItemEntity.class);
-
+        System.out.println("Finally Item: " + itemEntity.toString());
         return itemRepository.save(itemEntity);
     }
 
     @Override
-    public List<Item> retriveItem(){
+    public List<ItemLoadDto> retriveItem(){
 
-        List<Item> list = new ArrayList<>();
+        List<ItemLoadDto> list = new ArrayList<>();
         Iterable<ItemEntity> itemList = itemRepository.findAll();
         Iterator<ItemEntity> iterator = itemList.iterator();
 
         while (iterator.hasNext()){
             ItemEntity entity = iterator.next();
-            Item item = new Item();
-            item.setId(entity.getId());
-            item.setItemCode(entity.getItemCode());
-            item.setItemName(entity.getItemName());
-            item.setCategory(entity.getCategory());
-            item.setItemPrice(entity.getItemPrice());
-            list.add(item);
+            ItemLoadDto itemLoadDto = new ItemLoadDto();
+//            Item item = new Item();
+            itemLoadDto.setId(entity.getId());
+            itemLoadDto.setItemCode(entity.getItemCode());
+            itemLoadDto.setItemName(entity.getItemName());
+            itemLoadDto.setCategory(entity.getCategory());
+            itemLoadDto.setCategoryId(entity.getCategoryId());
+            itemLoadDto.setItemPrice(entity.getItemPrice());
+            list.add(itemLoadDto);
         }
-
         return list;
     }
 
@@ -74,5 +82,28 @@ public class ItemServiceImpl implements ItemService {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public List<ItemEntity> getDetailsWhenClickCategory(ItemLoadDto itemLoadDto){
+        System.out.println("ItemServiceImpl -> getDetailsWhenClickCategory ");
+
+        List<ItemEntity> list = new ArrayList<>();
+        Long categoryId = itemLoadDto.getCategoryId();
+        Iterable<ItemEntity> all = itemRepository.findAll();
+        Iterator<ItemEntity> iterator = all.iterator();
+
+        while (iterator.hasNext()){
+            ItemEntity entity = iterator.next();
+            System.out.println("Start While loop " + entity);
+            System.out.println("categoryId " + categoryId);
+            System.out.println("entity.getCategoryId " + entity.getCategoryId());
+            if(categoryId.equals(entity.getCategoryId())){
+                System.out.println("Start if" );
+                list.add(entity);
+            }
+        }
+        System.out.println("Print List"+list );
+        return list;
     }
 }

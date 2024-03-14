@@ -44,6 +44,7 @@ public class CategoryController {
     }
 
 
+
     @PostMapping("/updateCategory")
     public ResponseEntity updateCategory(@RequestBody CategoryUpdateDto categoryUpdateDto){
         boolean updated = categoryService.updateCategory(categoryUpdateDto);
