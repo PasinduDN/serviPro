@@ -32,6 +32,7 @@ export class ItemListComponent implements OnInit {
     itemCode: null,
     itemName: null,
     category: null,
+    categoryId:null,
     itemPrice: null
   }
 
@@ -40,7 +41,6 @@ export class ItemListComponent implements OnInit {
     this.http
       .post('http://localhost:8080/item/addItem', this.item)
       .subscribe(data => {
-        console.log(data);
         this.loadItem();
         this.isSubmissionDisabled = false;
         this.selectedItem = {};
@@ -51,6 +51,7 @@ export class ItemListComponent implements OnInit {
           itemCode: null,
           itemName: null,
           category: null,
+          categoryId:null,
           itemPrice: null
         }
       })
@@ -61,6 +62,7 @@ export class ItemListComponent implements OnInit {
       .get('http://localhost:8080/item/getItem')
       // Anonimas function in Call Back Function 
       .subscribe((data) => {
+        console.log(data)
         this.itemList = data
       })
   }
@@ -86,6 +88,7 @@ export class ItemListComponent implements OnInit {
       itemCode: null,
       itemName: null,
       category: null,
+      categoryId:null,
       itemPrice: null
     }
   }
@@ -116,7 +119,9 @@ export class ItemListComponent implements OnInit {
     this.selectedCategory=selectcategory;
     console.log(selectcategory);
     this.item.category=selectcategory.categoryName;
+    this.item.categoryId=selectcategory.categoryId;
     console.log(selectcategory.categoryName);
+    console.log(this.item.categoryId);
     this.selectedCategory={}
   }
 }

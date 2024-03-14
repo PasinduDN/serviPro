@@ -9,7 +9,7 @@
 
         <div class="col-3  custom-column1-color p-3 rounded-border m-1">
           <!-- <button class="btn btn-outline-warning mb-2 gap-3"></button> -->
-          <div *ngFor="let itemName of filterdItemArray" class="btn btn-outline-warning mb-2 gap-3">  
+          <div *ngFor="let itemName of filterdItemArray" class="btn btn-outline-warning mb-2 gap-3" (click)="clickItem(itemName)">  
             {{itemName}}
           </div>        
       </div>
@@ -26,59 +26,11 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>1</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>1</td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>5</td>
-                  <td>5</td>
-                  <td>5</td>
-                </tr>
-                <tr>
-                  <td>8</td>
-                  <td>5</td>
-                  <td>5</td>
-                  <td>5</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>5</td>
-                  <td>5</td>
-                  <td>5</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>5</td>
-                  <td>5</td>
-                  <td>5</td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>5</td>
-                  <td>5</td>
-                  <td>5</td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>5</td>
-                  <td>5</td>
-                  <td>5</td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>5</td>
-                  <td>5</td>
-                  <td>5</td>
+                <tr *ngFor="let item of selectedItem" data-bs-toggle="modal" data-bs-target="#updateItem" (click)="cleckItemforTempSave(item)">
+                  <td>{{item.itemqty}}</td>
+                  <td>{{item.itemName}}</td>
+                  <td>{{item.itmDiscount}}</td>
+                  <td>{{item.itemPrice}}</td>
                 </tr>
               </tbody>
             </table>
@@ -86,8 +38,8 @@
         </div> 
         
         <div class="col-2 custom-column1-color custom-column1 p-3 rounded-border m-1">
-          <button routerLink="/pos" class="btn btn-danger mb-2"> Order Cancel </button>  
-          <button class="btn btn-danger mb-2 mt-5"> Delete </button>
+          <button  class="btn btn-danger mb-2" (click)="orderCancel()"> Order Clear </button>  
+          <button class="btn btn-danger mb-2 mt-5" (click)="deleteItem()"> Delete </button>
             <button class="btn btn-success mb-2"> + </button>
             <button class="btn btn-success mb-2"> - </button>
         </div>
@@ -116,4 +68,50 @@
     
       <div class="col-2"></div>
     </div>
+</div>
+
+
+<!-- Modal - Update Item-->
+<div class="modal fade" id="updateItem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-5 pt-0">
+          <form class="">
+            <div class=" mb-3">
+              <label for="itemqty" class="form-label">Qty</label>
+              <input type="text" class="form-control rounded-3" name="qty" [(ngModel)]="itemForTempSave && itemForTempSave.itemqty" [ngModelOptions]="{standalone: true}" id="itemqty" placeholder="">
+              <!-- <label for="qty"></label> -->
+            </div>
+            <div class=" mb-3">
+              <label for="itmDiscount" class="form-label">Discount</label>
+              <input type="text" class="form-control rounded-3" name="Discount" [(ngModel)]="itemForTempSave && itemForTempSave.itmDiscount"  [ngModelOptions]="{standalone: true}" id="itmDiscount" placeholder="">
+              <!-- <label for="Discount"></label> -->
+            </div>
+            <div class=" mb-3">
+              <label for="itemPrice" class="form-label">Price</label>
+              <input type="text" class="form-control rounded-3" name="Price" [(ngModel)]="itemForTempSave && itemForTempSave.itemPrice" [ngModelOptions]="{standalone: true}" id="itemPrice" placeholder="">
+              <!-- <label for="Price"></label> -->
+            </div>
+           
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+              <button 
+              class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" 
+              type="submit" 
+              data-bs-dismiss="modal" 
+              (click)="clickToUpdateItem()"
+              aria-label="Close">
+                Update
+            </button>
+            <button type="button" class="btn btn-outline-danger btn-lg px-4" data-bs-dismiss="modal" aria-label="Close" >Cancel</button>
+
+            </div>
+            
+            <small class="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small>
+          </form>
+        </div>
+    </div>
+  </div>
 </div>
