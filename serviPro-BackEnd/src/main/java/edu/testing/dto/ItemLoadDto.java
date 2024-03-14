@@ -1,6 +1,5 @@
-package edu.testing.entity;
+package edu.testing.dto;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,18 +7,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "item")
-public class ItemEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class ItemLoadDto {
     private Long id;
-
     private String itemCode;
     private String itemName;
     private String category;
     private Long categoryId;
     private double itemPrice;
-
 }
