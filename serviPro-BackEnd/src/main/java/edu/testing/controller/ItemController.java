@@ -26,7 +26,12 @@ public class ItemController {
     public ItemEntity addItem(@RequestBody ItemLoadDto itemLoadDto) throws InterruptedException {
         System.out.println("Received item: " + itemLoadDto.toString());
         return itemService.addItem(itemLoadDto);
+    }
 
+    @PostMapping("/tempOrder")
+    public ItemEntity tempOrder(@RequestBody ItemLoadDto itemLoadDto) throws InterruptedException {
+        System.out.println("Received item: " + itemLoadDto.toString());
+        return itemService.addItem(itemLoadDto);
     }
 
     @PatchMapping("/updateItem")
