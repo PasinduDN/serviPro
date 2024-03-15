@@ -36,3 +36,15 @@
         color: aliceblue;
         border:1px solid #212229;
     }
+
+    .special-height{
+        height: 200px !important
+    }
+
+    .borderWhite{
+        background-color: white !important;
+        color: rgb(255, 255, 255);
+        border:1px solid white !important;
+    }
+
+    

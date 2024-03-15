@@ -1,5 +1,5 @@
 <div class="container min-vh-100 rounded-border ">
-    <p class="text-light">Pick Up</p>
+    <!-- <p class="text-light">Pick Up</p> -->
 
     <div class="row">
         <div class="col-2">
@@ -51,17 +51,17 @@
     
       <div class="col-4  custom-column1-color  rounded-border mt-1">
         <div class="row ">
-          <div class="col text-light fw-bold">Total : </div>
+          <div class="col text-light fw-bold">Sub Total : </div>
           <div class="col text-light fw-bold" > {{total}}</div>
-          <div class="col"></div>
-          <div class="col"></div>
+          <!-- <div class="col"></div> -->
+          <!-- <div class="col"></div> -->
         </div>
         <table class="table text-light">
           <br>  
             <tr>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center ">
-                    <button routerLink="/pickUpSettle" type="button" class="btn btn-primary btn-lg px-4 gap-3 fs-6">Settle</button>
-                    <button type="button" class="btn btn-primary btn-lg px-4 ft-6">KOT & Bill</button>
+                    <!-- <button routerLink="/pickUpSettle" type="button" class="btn btn-primary btn-lg px-4 gap-3 fs-6">Settle</button> -->
+                    <button type="button" class="btn btn-primary btn-lg px-4 ft-6" data-bs-toggle="modal" data-bs-target="#printBill">Continue to Payment</button>
                 </div>
             </tr>
         </table>
@@ -120,6 +120,138 @@
             
             <small class="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small>
           </form>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal - Continue To Payment-->
+<div class="modal fade" id="continuePayment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-5 pt-0">
+          <form class="">
+            <div class=" mb-3">
+              
+              <div class="  custom-column1-color custom-column1 p-3 rounded-border ">
+                <div class=" special-height w-100 table-wrapper-scroll-y my-custom-scrollbar ">
+                  <table class="table table-hover table-dark table-bordered table-borderless mb-0  w-100">
+                    <thead>
+                      <tr>
+                        <th scope="col">QTY </th>
+                        <th scope="col">Name </th>
+                        <th scope="col">Dis % </th>
+                        <th scope="col">Price </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of selectedItem" data-bs-toggle="modal" data-bs-target="#updateItem" (click)="clickItemforTempSave(item)" >
+                        <td>{{item.itemqty}}</td>
+                        <td>{{item.itemName}}</td>
+                        <td>{{item.itmDiscount}}</td>
+                        <td>{{item.itemPrice}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div> 
+
+            </div>
+            <div class=" mb-3">
+              <label for="itmDiscount" class="form-label">Total - {{total}}</label>
+
+              <div class="form-floating">
+                <input type="text" class="form-control rounded-3" name="itemCode" [(ngModel)]="itemForTempSave && itemForTempSave.itmDiscount" [ngModelOptions]="{standalone: true}" id="userInput" placeholder="">
+                <label for="itemCode"> Charged </label>
+              </div>
+              
+
+              <!-- <input type="text" class="form-control rounded-3" name="Discount" [(ngModel)]="itemForTempSave && itemForTempSave.itmDiscount"  [ngModelOptions]="{standalone: true}" id="itmDiscount" placeholder=""> -->
+              <!-- <label for="Discount"></label> -->
+            </div>
+            
+           
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+              <button 
+              class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" 
+              type="submit" 
+              data-bs-dismiss="modal" 
+              (click)="clickToUpdateItem()"
+              aria-label="Close">
+                Print Bill
+            </button>
+            <!-- <button 
+            class="w-100 mb-2 btn btn-lg rounded-3 btn-danger" 
+            type="submit" 
+            data-bs-dismiss="modal" 
+            (click)="deleteItem()"
+            aria-label="Close">
+              Delete
+          </button> -->
+            <button type="button" class="btn btn-outline-danger btn-lg px-4" data-bs-dismiss="modal" aria-label="Close" >Cancel</button>
+
+            </div>
+            
+            <small class="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small>
+          </form>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal - Print Bill-->
+<div class="modal fade" id="printBill" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-5 pt-0">
+          <h2 class="text-center pb-1">Company Name</h2>
+          <h6 class="text-center pb-2">Company Address</h6>
+          <h2 class="text-center ">-------------------------------</h2>
+          <h6 class="text">Employee : </h6>
+          <h2 class="text-center ">-------------------------------</h2>
+
+          <table class="table borderWhite ">
+            <tbody>
+              <tr *ngFor="let tempItem of selectedItem"  class="borderWhite ">
+                <!-- <div class="row"> -->
+                  <!-- <div class="col"><p class=" "> {{tempItem.itemqty}} {{tempItem.itemName}}</p></div>
+                  <div class="col"><p class="text-end ">Rs: {{tempItem.itemPrice}}</p></div> -->
+
+                  <div class="row">
+                    <div class="col"><h6 class=" ">{{tempItem.itemqty}} , {{tempItem.itemName}}</h6></div>
+                    <div class="col"><h6 class="text-end ">Rs: {{tempItem.itemPrice}}</h6></div>
+                  </div>
+                <!-- </div> -->
+              </tr>
+            </tbody>
+          </table>
+
+          <h2 class="text-center ">-------------------------------</h2>
+          
+          <div class="row">
+            <div class="col"><h5 class=" ">Total</h5></div>
+            <div class="col"><h5 class="text-end ">Rs: {{total}}</h5></div>
+          </div>
+
+          <div class="row">
+            <div class="col"><h6 class=" ">Cash</h6></div>
+            <div class="col"><h6 class="text-end ">Rs: 0</h6></div>
+          </div>
+
+          <div class="row">
+            <div class="col"><h6 class=" ">Change</h6></div>
+            <div class="col"><h6 class="text-end ">Rs: 0</h6></div>
+          </div>
+
+          <h2 class="text-center ">-------------------------------</h2>
+          <h6 class="text-center pb-2">Thank You</h6>
         </div>
     </div>
   </div>
