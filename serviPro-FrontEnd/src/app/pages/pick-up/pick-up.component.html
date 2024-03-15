@@ -26,7 +26,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let item of selectedItem" data-bs-toggle="modal" data-bs-target="#updateItem" (click)="cleckItemforTempSave(item)">
+                <tr *ngFor="let item of selectedItem" data-bs-toggle="modal" data-bs-target="#updateItem" (click)="clickItemforTempSave(item)" >
                   <td>{{item.itemqty}}</td>
                   <td>{{item.itemName}}</td>
                   <td>{{item.itmDiscount}}</td>
@@ -39,9 +39,9 @@
         
         <div class="col-2 custom-column1-color custom-column1 p-3 rounded-border m-1">
           <button  class="btn btn-danger mb-2" (click)="orderCancel()"> Order Clear </button>  
-          <button class="btn btn-danger mb-2 mt-5" (click)="deleteItem()"> Delete </button>
-            <button class="btn btn-success mb-2"> + </button>
-            <button class="btn btn-success mb-2"> - </button>
+          <!-- <button class="btn btn-danger mb-2 mt-5" (click)="deleteItem()"> Delete </button> -->
+            <!-- <button class="btn btn-success mb-2"> + </button> -->
+            <!-- <button class="btn btn-success mb-2"> - </button> -->
         </div>
     </div>
     
@@ -50,13 +50,14 @@
       <div class="col-3 m-1"></div>
     
       <div class="col-4  custom-column1-color  rounded-border mt-1">
+        <div class="row ">
+          <div class="col text-light fw-bold">Total : </div>
+          <div class="col text-light fw-bold" > {{total}}</div>
+          <div class="col"></div>
+          <div class="col"></div>
+        </div>
         <table class="table text-light">
-            <tr>
-                <th scope="col">Total</th>
-                <!-- <th scope="col">Name</th> -->
-                <!-- <th scope="col">Dis%</th> -->
-                <th scope="col">Price</th>
-            </tr>
+          <br>  
             <tr>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center ">
                     <button routerLink="/pickUpSettle" type="button" class="btn btn-primary btn-lg px-4 gap-3 fs-6">Settle</button>
@@ -105,6 +106,14 @@
               aria-label="Close">
                 Update
             </button>
+            <button 
+            class="w-100 mb-2 btn btn-lg rounded-3 btn-danger" 
+            type="submit" 
+            data-bs-dismiss="modal" 
+            (click)="deleteItem()"
+            aria-label="Close">
+              Delete
+          </button>
             <button type="button" class="btn btn-outline-danger btn-lg px-4" data-bs-dismiss="modal" aria-label="Close" >Cancel</button>
 
             </div>
