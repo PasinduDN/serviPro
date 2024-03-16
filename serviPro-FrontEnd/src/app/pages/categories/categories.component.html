@@ -65,10 +65,10 @@
               class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" 
               (click)="createItem()" 
               type="submit" 
-              [disabled]="isSubmitionDisabled" 
+              
               data-bs-dismiss="modal" 
-              aria-label="Close"  
-              [disabled]="isSubmitionDisabled  ||!category.categoryName">
+              aria-label="Close" >
+              <!-- [disabled]="isSubmitionDisabled  ||!category.categoryName"  -->
                 Submit
             </button>
             <button 

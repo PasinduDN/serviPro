@@ -61,7 +61,7 @@
             <tr>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center ">
                     <!-- <button routerLink="/pickUpSettle" type="button" class="btn btn-primary btn-lg px-4 gap-3 fs-6">Settle</button> -->
-                    <button type="button" class="btn btn-primary btn-lg px-4 ft-6" data-bs-toggle="modal" data-bs-target="#printBill">Continue to Payment</button>
+                    <button type="button" class="btn btn-primary btn-lg px-4 ft-6" data-bs-toggle="modal" data-bs-target="#continuePayment">Continue to Payment</button>
                 </div>
             </tr>
         </table>
@@ -164,7 +164,7 @@
               <label for="itmDiscount" class="form-label">Total - {{total}}</label>
 
               <div class="form-floating">
-                <input type="text" class="form-control rounded-3" name="itemCode" [(ngModel)]="itemForTempSave && itemForTempSave.itmDiscount" [ngModelOptions]="{standalone: true}" id="userInput" placeholder="">
+                <input type="text" class="form-control rounded-3" name="itemCode" [(ngModel)]="cash && cash.fromUser" [ngModelOptions]="{standalone: true}" id="userInput" placeholder="">
                 <label for="itemCode"> Charged </label>
               </div>
               
@@ -179,18 +179,13 @@
               class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" 
               type="submit" 
               data-bs-dismiss="modal" 
-              (click)="clickToUpdateItem()"
+              data-bs-toggle="modal" 
+              data-bs-target="#printBill"
+              (click)="clickOrderConform()"
               aria-label="Close">
-                Print Bill
+                Conform
             </button>
-            <!-- <button 
-            class="w-100 mb-2 btn btn-lg rounded-3 btn-danger" 
-            type="submit" 
-            data-bs-dismiss="modal" 
-            (click)="deleteItem()"
-            aria-label="Close">
-              Delete
-          </button> -->
+        
             <button type="button" class="btn btn-outline-danger btn-lg px-4" data-bs-dismiss="modal" aria-label="Close" >Cancel</button>
 
             </div>
@@ -211,11 +206,13 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body p-5 pt-0">
+
+        <div class="border border-danger rounded p-2">
           <h2 class="text-center pb-1">Company Name</h2>
           <h6 class="text-center pb-2">Company Address</h6>
-          <h2 class="text-center ">-------------------------------</h2>
+          <h2 class="text-center ">------------------------------</h2>
           <h6 class="text">Employee : </h6>
-          <h2 class="text-center ">-------------------------------</h2>
+          <h2 class="text-center ">------------------------------</h2>
 
           <table class="table borderWhite ">
             <tbody>
@@ -233,7 +230,7 @@
             </tbody>
           </table>
 
-          <h2 class="text-center ">-------------------------------</h2>
+          <h2 class="text-center ">------------------------------</h2>
           
           <div class="row">
             <div class="col"><h5 class=" ">Total</h5></div>
@@ -241,18 +238,48 @@
           </div>
 
           <div class="row">
-            <div class="col"><h6 class=" ">Cash</h6></div>
-            <div class="col"><h6 class="text-end ">Rs: 0</h6></div>
+            <div class="col"><h6 class="">Cash</h6></div>
+            <div class="col"><h6 class="text-end ">Rs:  {{cash.fromUser}}</h6></div>
           </div>
 
           <div class="row">
             <div class="col"><h6 class=" ">Change</h6></div>
-            <div class="col"><h6 class="text-end ">Rs: 0</h6></div>
+            <div class="col"><h6 class="text-end ">Rs: {{cash.forUser}}</h6></div>
           </div>
 
-          <h2 class="text-center ">-------------------------------</h2>
+          <h2 class="text-center ">------------------------------</h2>
           <h6 class="text-center pb-2">Thank You</h6>
         </div>
+
+        <div class="row pt-2">
+
+          <div class="col">
+          <button 
+            type="button" 
+            class="w-100 btn btn-outline-danger btn-lg px-4" 
+            data-bs-dismiss="modal" 
+            aria-label="Close" 
+            data-bs-toggle="modal" 
+            data-bs-target="#continuePayment">
+            Back
+          </button>
+          </div>
+          
+          <div class="col">
+            <button 
+              class="w-100 btn btn-lg rounded-3 btn-primary" 
+              type="submit" 
+              data-bs-dismiss="modal" 
+              data-bs-toggle="modal" 
+              aria-label="Close">
+                Print Bill
+            </button>
+          </div>
+
+        
+        </div>
+        
+        </div>         
     </div>
   </div>
 </div>
