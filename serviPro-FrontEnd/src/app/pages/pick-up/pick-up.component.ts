@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Injectable, OnInit } from '@angular/core';
+import { formatDate } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +34,7 @@ export class PickUpComponent implements OnInit{
   ngOnInit(): void {
     this.loadCategories();
     this.loadItems();
+    this.calculateTotal();
   }
 
   loadCategories(){
@@ -97,6 +99,16 @@ export class PickUpComponent implements OnInit{
 
       for(let i=0; i<this.loadItemArray.length; i++){
         if(this.loadItemArray[i].itemName == itemName){
+
+          for(let j=0; j<this.selectedItem.length; j++){
+            if(itemName == this.selectedItem[j].itemName ){
+              this.selectedItem[j].itemqty = this.selectedItem[j].itemqty + 1;
+              this.selectedItem[j].itemPrice = this.selectedItem[j].itemPrice + this.loadItemArray[i].itemPrice;
+              this.calculateTotal();
+              return;
+            }
+          }
+
           let newItem = {
             itemid: this.loadItemArray[i].itemid,
             itemqty: 1,
@@ -183,12 +195,38 @@ export class PickUpComponent implements OnInit{
     }
   }
 
-  orderSave(){
-    this.http 
-      .post('http://localhost:8080/item/getItemList',this.selectCatgory)
-      .subscribe((data: any) => {
-        console.log(data);
-      });
+  public order = {
+  dateTime: '',
+  itemsList: '',
+  subtotal: 0,
+  quantity: 0,
+  cashier: ''
   }
+
+  orderSave(){
+
+    this.order.dateTime = formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss', 'en-US');;
+    this.order.subtotal = this.total;
+    this.order.cashier = "POS1";
+    let length = this.selectedItem.length;
+    for(let i=0; i<length; i++){
+      this.order.itemsList = this.order.itemsList + " " + this.selectedItem[i].itemName;
+      this.order.quantity = this.order.quantity  + this.selectedItem[i].itemqty;
+    }
+
+    console.log(this.order.dateTime);
+    console.log(this.order.itemsList);
+    console.log(this.order.subtotal);
+    console.log(this.order.quantity);
+    console.log(this.order.cashier);
+
+    // this.http 
+    //   .post('http://localhost:8080/item/getItemList',this.selectCatgory)
+    //   .subscribe((data: any) => {
+    //     console.log(data);
+    //   });
+  }
+
+
 
 }

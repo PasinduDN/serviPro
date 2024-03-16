@@ -15,7 +15,7 @@
           POS
         </a>
       </li>
-      <li (click)="setSelectedMenu('orders')">
+      <li routerLink="/orders" (click)="setSelectedMenu('orders')">
         <a [ngClass]="{'active':selectedMenu == 'orders'}" class="nav-link link-body-emphasis text-light">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#orders"/></svg>
           Orders

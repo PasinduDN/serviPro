@@ -1,0 +1,51 @@
+
+
+<div class="container min-vh-100 rounded-border ">
+    <!-- <p class="text-light">item-list </p> -->
+
+<div class="row px-4 ">
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col custom-column1-color custom-column1 p-3 rounded-border m-1">
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Item</button>
+    </div>
+</div>
+
+
+<div  class="d-flex justify-content-center text-warning">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<div class="row px-4 ">
+    <table class="table table-hover table-dark table-bordered table-borderless mb-0  w-100">
+        <thead>
+          <tr>
+            <th scope="col"> # </th>
+            <th scope="col"> Id </th>
+            <th scope="col"> Name</th>
+            <th scope="col"> Category</th>
+            <th scope="col"> Price </th>
+            <th scope="col"> Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- This is For each  -->
+          <!-- <tr *ngFor="let item of itemList; let i = index;">
+            <td>{{i+1}}</td>
+            <td>{{item.itemCode}}</td>
+            <td>{{item.itemName}}</td>
+            <td>{{item.category}}</td>
+            <td>{{item.itemPrice}}</td> -->
+            <!-- <td>
+              <button (click)="setSelectedItem(item)" class="btn btn-info " data-bs-toggle="modal" data-bs-target="#updateItem" > Update </button>
+              <button (click)="setSelectedItem(item)" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#deleteModal"> Remove </button>
+            </td> -->
+          <!-- </tr> -->
+        </tbody>
+      </table>
+</div>
+
+
