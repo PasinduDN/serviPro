@@ -38,7 +38,7 @@
         </div> 
         
         <div class="col-2 custom-column1-color custom-column1 p-3 rounded-border m-1">
-          <button  class="btn btn-danger mb-2" (click)="orderCancel()"> Order Clear </button>  
+          <button  class="btn btn-danger mb-2" (click)="orderCancel()" (click)="calculateTotal()"> Order Clear </button>  
           <!-- <button class="btn btn-danger mb-2 mt-5" (click)="deleteItem()"> Delete </button> -->
             <!-- <button class="btn btn-success mb-2"> + </button> -->
             <!-- <button class="btn btn-success mb-2"> - </button> -->
@@ -148,7 +148,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let item of selectedItem" data-bs-toggle="modal" data-bs-target="#updateItem" (click)="clickItemforTempSave(item)" >
+                      <tr *ngFor="let item of selectedItem"  >
                         <td>{{item.itemqty}}</td>
                         <td>{{item.itemName}}</td>
                         <td>{{item.itmDiscount}}</td>
@@ -269,6 +269,7 @@
             <button 
               class="w-100 btn btn-lg rounded-3 btn-primary" 
               type="submit" 
+              (click)="orderSave()"
               data-bs-dismiss="modal" 
               data-bs-toggle="modal" 
               aria-label="Close">
