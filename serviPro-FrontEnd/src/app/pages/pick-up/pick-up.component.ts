@@ -52,6 +52,18 @@ export class PickUpComponent implements OnInit{
       })
   }
 
+  public cash = {
+    fromUser: 0,
+    forUser: 0
+  }
+  
+  clickOrderConform(){
+    console.log(this.cash.fromUser);
+    if (this.cash.fromUser !== null) {
+      this.cash.forUser = this.cash.fromUser - this.total;
+    }
+  }
+
   selectedCategory(category:any){
     console.log(category);
     this.selectCatgory=category;
