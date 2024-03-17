@@ -33,3 +33,11 @@
         color: aliceblue;
         border:1px solid #212229;
     }
+
+    .active-link {
+        background-image: linear-gradient(to right, #fba903, #ff4c00) !important; 
+    }
+
+    .btn-background-img{
+        background-image: linear-gradient(to right, #fba903, #ff4c00) !important; 
+    }
