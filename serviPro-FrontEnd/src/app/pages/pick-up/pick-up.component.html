@@ -2,9 +2,16 @@
     <!-- <p class="text-light">Pick Up</p> -->
 
     <div class="row">
-        <div class="col-2">
-          <div id="list-example" class="list-group">
-            <a *ngFor="let category of categoryList" class="list-group-item list-group-item-action" (click)="selectedCategory(category)">{{ category.categoryName }}</a>          </div>
+        <div class="col-2 custom-column1-color p-3">
+          <div id="list-example" class="list-group ">
+            <!-- <a *ngFor="let category of categoryList" class="list-group-item list-group-item-action btn-warning" (click)="selectedCategory(category)">
+              {{ category.categoryName }}
+            </a>      -->
+            
+            <div *ngFor="let category of categoryList" class="btn btn-warning mb-2 gap-3" (click)="selectedCategory(category)">  
+              {{ category.categoryName }}
+            </div> 
+          </div>
         </div>
 
         <div class="col-3  custom-column1-color p-3 rounded-border m-1">
@@ -38,7 +45,7 @@
         </div> 
         
         <div class="col-2 custom-column1-color custom-column1 p-3 rounded-border m-1">
-          <button  class="btn btn-danger mb-2" (click)="orderCancel()" (click)="calculateTotal()"> Order Clear </button>  
+          <button  class="btn btnOrderClear text-light mb-2" (click)="orderCancel()" (click)="calculateTotal()"> Order Clear </button>  
           <!-- <button class="btn btn-danger mb-2 mt-5" (click)="deleteItem()"> Delete </button> -->
             <!-- <button class="btn btn-success mb-2"> + </button> -->
             <!-- <button class="btn btn-success mb-2"> - </button> -->
@@ -61,7 +68,7 @@
             <tr>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center ">
                     <!-- <button routerLink="/pickUpSettle" type="button" class="btn btn-primary btn-lg px-4 gap-3 fs-6">Settle</button> -->
-                    <button type="button" class="btn btn-primary btn-lg px-4 ft-6" data-bs-toggle="modal" data-bs-target="#continuePayment">Continue to Payment</button>
+                    <button type="button" class="btn btnContinuePayne btn-lg px-4 ft-6" data-bs-toggle="modal" data-bs-target="#continuePayment">Continue to Payment</button>
                 </div>
             </tr>
         </table>

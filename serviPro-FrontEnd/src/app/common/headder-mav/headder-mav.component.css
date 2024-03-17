@@ -1,0 +1,9 @@
+.btn-background-img{
+    background-image: linear-gradient(to right, #fba903, #ff4c00) !important; 
+    color: rgb(77, 76, 75);
+}
+
+.btn-background-img:hover{
+    background-image: linear-gradient(to right, #d18d06, #ff3300) !important; 
+    color: rgb(255, 255, 255);
+}

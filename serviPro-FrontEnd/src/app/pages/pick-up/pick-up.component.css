@@ -1,5 +1,10 @@
 .container{
-    background-color: #1E1D2A;
+    background: rgba( 8, 8, 8, 0.55 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 6.5px );
+    -webkit-backdrop-filter: blur( 6.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .rounded-border {
@@ -13,7 +18,13 @@
 }
 
 .custom-column1-color {
-    background-color: #212229 !important;
+    background: rgba( 255, 255, 255, 0.05 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 9px );
+-webkit-backdrop-filter: blur( 9px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+background: none !important;
 }
 
 .custom-column1{
@@ -47,4 +58,20 @@
         border:1px solid white !important;
     }
 
+.btnOrderClear{
+    background-color: rgb(192, 0, 0) !important;
+}
+
+.btnOrderClear:hover{
+    background-color: rgb(138, 1, 1) !important;
+}
     
+.btnContinuePayne{
+    background-color: rgb(1, 114, 76) !important;
+    color: aliceblue;
+}
+
+.btnContinuePayne:hover{
+    background-color: rgb(1, 82, 55) !important;
+    color: beige;
+}
