@@ -1,5 +1,10 @@
 .container{
-    background-color: #1E1D2A;
+    background: rgba( 8, 8, 8, 0.55 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 6.5px );
+    -webkit-backdrop-filter: blur( 6.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .rounded-border {
@@ -40,4 +45,14 @@
         /* background-color: rgba(210,130,240, 0.0) !important; */
         color: aliceblue;
         border:1px solid #212229;
+    }
+
+    .custom-backGround {
+        background: rgba( 255, 255, 255, 0.05 ) !important;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 )!important;
+    backdrop-filter: blur( 9px )!important;
+    -webkit-backdrop-filter: blur( 9px )!important;
+    border-radius: 10px!important;
+    border: 1px solid rgba( 255, 255, 255, 0.18 )!important;
+    background: none !important;
     }

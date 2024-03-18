@@ -8,7 +8,7 @@
     <div class="col"></div>
     <div class="col"></div>
     <div class="col custom-column1-color custom-column1 p-3 rounded-border m-1">
-        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Item</button>
+        <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Item</button>
     </div>
 </div>
 
@@ -20,27 +20,27 @@
 </div>
 
 <div class="row px-4 ">
-    <table class="table table-hover table-dark table-bordered table-borderless mb-0  w-100" *ngIf="itemList">
-        <thead>
-          <tr>
-            <th scope="col"> # </th>
-            <th scope="col"> Id </th>
-            <th scope="col"> Name</th>
-            <th scope="col"> Category</th>
-            <th scope="col"> Price </th>
-            <th scope="col"> Action</th>
+    <table class="table  mb-0  w-100" *ngIf="itemList">
+        <thead class="custom-backGround">
+          <tr >
+            <th class="custom-backGround" scope="col"> # </th>
+            <th class="custom-backGround" scope="col"> Id </th>
+            <th class="custom-backGround" scope="col"> Name</th>
+            <th class="custom-backGround" scope="col"> Category</th>
+            <th class="custom-backGround" scope="col"> Price </th>
+            <th class="custom-backGround" scope="col"> Action</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class=" custom-backGround">
           <!-- This is For each  -->
-          <tr *ngFor="let item of itemList; let i = index;">
-            <td>{{i+1}}</td>
-            <td>{{item.itemCode}}</td>
-            <td>{{item.itemName}}</td>
-            <td>{{item.category}}</td>
-            <td>{{item.itemPrice}}</td>
-            <td>
-              <button (click)="setSelectedItem(item)" class="btn btn-info " data-bs-toggle="modal" data-bs-target="#updateItem" > Update </button>
+          <tr class=" custom-backGround" *ngFor="let item of itemList; let i = index;">
+            <td class=" custom-backGround">{{i+1}}</td>
+            <td class="custom-backGround">{{item.itemCode}}</td>
+            <td class="custom-backGround" >{{item.itemName}}</td>
+            <td class="custom-backGround" >{{item.category}}</td>
+            <td class="custom-backGround" >{{item.itemPrice}}</td>
+            <td class="custom-backGround">
+              <button (click)="setSelectedItem(item)" class="btn btn-success mx-1" data-bs-toggle="modal" data-bs-target="#updateItem" > Update </button>
               <button (click)="setSelectedItem(item)" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#deleteModal"> Remove </button>
             </td>
           </tr>

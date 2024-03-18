@@ -18,22 +18,22 @@
 </div>
 
 <div class="row px-4 ">
-    <div class="col">
+    <div class="col ">
         <table class="table table-hover table-dark table-bordered table-borderless mb-0  w-100 "  *ngIf="categoryList">
             <thead>
               <tr>
-                <th scope="col"> # </th>
-                <th scope="col"> Category Name </th>
-                <th scope="col"> Action </th>
+                <th class="custom-backGround " scope="col"> # </th>
+                <th class="custom-backGround " scope="col"> Category Name </th>
+                <th class="custom-backGround " scope="col"> Action </th>
               </tr>
             </thead>
             <tbody>
               <!-- This is For each  -->
           <tr *ngFor="let category of categoryList; let i = index;">
-            <td>{{i+1}}</td>
-            <td>{{category.categoryName}}</td>
-            <td>
-              <button (click)="setSelectedCategory(category)" class="btn btn-info " data-bs-toggle="modal" data-bs-target="#updateItem" > Update </button>
+            <td class="custom-backGround ">{{i+1}}</td>
+            <td class="custom-backGround ">{{category.categoryName}}</td>
+            <td class="custom-backGround ">
+              <button (click)="setSelectedCategory(category)" class="btn btn-success mx-1" data-bs-toggle="modal" data-bs-target="#updateItem" > Update </button>
               <button (click)="setSelectedCategory(category)" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#deleteModal"> Remove </button>
             </td>
           </tr>
