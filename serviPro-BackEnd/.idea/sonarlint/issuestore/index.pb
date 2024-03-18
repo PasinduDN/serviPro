@@ -67,3 +67,7 @@ c
 3src/main/java/edu/testing/service/OrderService.java,6\1\61669439a3563997a792e16d1355306b34884ae6
 l
 <src/main/java/edu/testing/service/impl/OrderServiceImpl.java,0\c\0ccc245eb980b624157c21fe9520418171b9512c
+^
+.src/main/java/edu/testing/dto/OrderedItem.java,7\1\71426765010b666b9a6c5d6b1d5c13156bc1680a
+g
+7src/main/java/edu/testing/entity/OrderedItemEntity.java,c\8\c8a4fb7fe60243a9847ac5cdede56e89747d9d40
